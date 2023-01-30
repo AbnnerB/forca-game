@@ -164,6 +164,7 @@ export default function Game() {
         {words[0] === "gol" && <h2>Carros</h2>}
         {words[0] === "bmw" && <h2>Marca de Automóveis</h2>}
         {words[0] === "mesa" && <h2>Objetos</h2>}
+        {words[0] === "abobrinha" && <h2>Legumes, Vegetias e Grãos</h2>}
 
         <HangmanDrawing numberOfGuesses={incorrectGuesses.length} />
         <HangmanWord

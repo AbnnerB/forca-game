@@ -91,7 +91,6 @@ export default function Keyboard({
             onClick={() => addGuessedLetters(letter)}
             disabled={!(isActive && isInActive) || disabled}
             style={{
-              //   backgroundColor: isInActive ? "" : "red",
               backgroundColor: isInActive ? "" : "red",
               color: !isActive ? "green" : "",
               opacity: disabled ? "0.3" : "",

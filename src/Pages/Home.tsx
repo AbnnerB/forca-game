@@ -9,6 +9,7 @@ import CarBrand from "../Data/CarBrand";
 import { Link } from "react-router-dom";
 import ObjectsList from "../Data/ObjectsList";
 import WinLose from "../components/WinLose";
+import Vegetables from "../Data/Vegetables";
 
 const Wrapper = styled.div`
   display: flex;
@@ -82,6 +83,12 @@ export default function Home() {
             onClick={() => setWords(ObjectsList)}
           >
             Objetos
+          </Button>
+          <Button
+            style={{ opacity: words === Vegetables ? "1" : "0.6" }}
+            onClick={() => setWords(Vegetables)}
+          >
+            Legumes, Vegetias e Grãos
           </Button>
         </div>
 
