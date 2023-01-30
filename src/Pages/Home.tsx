@@ -88,7 +88,7 @@ export default function Home() {
             style={{ opacity: words === Vegetables ? "1" : "0.6" }}
             onClick={() => setWords(Vegetables)}
           >
-            Legumes, Vegetias e Grãos
+            Legumes, Vegetais e Grãos
           </Button>
         </div>
 
