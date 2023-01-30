@@ -82,7 +82,7 @@ export default function Game() {
 
       setGuessedLetters((guessedLetters) => [...guessedLetters, letter]);
     },
-    [guessedLetters]
+    [guessedLetters, isLoser, isWinner]
   );
 
   useEffect(() => {
@@ -99,9 +99,32 @@ export default function Game() {
     return () => {
       document.removeEventListener("keypress", handler);
     };
-  }, [guessedLetters, isLoser, isWinner]);
+  }, [guessedLetters, isLoser, isWinner, addGuessedLetters]);
 
   const correctWordUppercase = wordToGuess.toUpperCase();
+
+  // qnt win and Loses
+  const getWinAndLoseFromLocalStorage = JSON.parse(
+    localStorage.getItem("winAndLoses") || "{}"
+  );
+
+  let qntWinner = getWinAndLoseFromLocalStorage.win || 0;
+  let qntLoser = getWinAndLoseFromLocalStorage.lose || 0;
+
+  useEffect(() => {
+    if (isWinner === true) {
+      qntWinner = qntWinner + 1;
+    } else if (isLoser === true) {
+      qntLoser = qntLoser + 1;
+    }
+
+    const objWithWinAndLoses = {
+      win: qntWinner,
+      lose: qntLoser,
+    };
+
+    localStorage.setItem("winAndLoses", JSON.stringify(objWithWinAndLoses));
+  }, [isLoser, isWinner]);
 
   return (
     <Wrapper>

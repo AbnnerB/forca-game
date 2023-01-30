@@ -8,6 +8,7 @@ import CarBrand from "../Data/CarBrand";
 
 import { Link } from "react-router-dom";
 import ObjectsList from "../Data/ObjectsList";
+import WinLose from "../components/WinLose";
 
 const Wrapper = styled.div`
   display: flex;
@@ -46,45 +47,48 @@ export default function Home() {
   }, [words]);
 
   return (
-    <Wrapper>
-      <h1>Jogo da Forca</h1>
+    <>
+      <WinLose />
+      <Wrapper>
+        <h1>Jogo da Forca</h1>
 
-      <div className="containerButtons">
-        <Button
-          style={{ opacity: words === Fruits ? "1" : "0.6" }}
-          onClick={() => setWords(Fruits)}
-        >
-          Frutas
-        </Button>
-        <Button
-          style={{ opacity: words === City ? "1" : "0.6" }}
-          onClick={() => setWords(City)}
-        >
-          Paises
-        </Button>
-        <Button
-          style={{ opacity: words === Cars ? "1" : "0.6" }}
-          onClick={() => setWords(Cars)}
-        >
-          Carros
-        </Button>
-        <Button
-          style={{ opacity: words === CarBrand ? "1" : "0.6" }}
-          onClick={() => setWords(CarBrand)}
-        >
-          Marca de Automóveis
-        </Button>
-        <Button
-          style={{ opacity: words === ObjectsList ? "1" : "0.6" }}
-          onClick={() => setWords(ObjectsList)}
-        >
-          Objetos
-        </Button>
-      </div>
+        <div className="containerButtons">
+          <Button
+            style={{ opacity: words === Fruits ? "1" : "0.6" }}
+            onClick={() => setWords(Fruits)}
+          >
+            Frutas
+          </Button>
+          <Button
+            style={{ opacity: words === City ? "1" : "0.6" }}
+            onClick={() => setWords(City)}
+          >
+            Paises
+          </Button>
+          <Button
+            style={{ opacity: words === Cars ? "1" : "0.6" }}
+            onClick={() => setWords(Cars)}
+          >
+            Carros
+          </Button>
+          <Button
+            style={{ opacity: words === CarBrand ? "1" : "0.6" }}
+            onClick={() => setWords(CarBrand)}
+          >
+            Marca de Automóveis
+          </Button>
+          <Button
+            style={{ opacity: words === ObjectsList ? "1" : "0.6" }}
+            onClick={() => setWords(ObjectsList)}
+          >
+            Objetos
+          </Button>
+        </div>
 
-      <Link style={{ color: "white" }} to="/game">
-        Iniciar
-      </Link>
-    </Wrapper>
+        <Link style={{ color: "white" }} to="/game">
+          Iniciar
+        </Link>
+      </Wrapper>
+    </>
   );
 }
